@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>币牛牛</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui-flex.css" />
+    <style type="text/css">
+        body {
+            /*background-color: #ffffff;*/
+        }
+        /*主流币种*/
+
+        .main-coin-wrap {
+            background-color: #ffffff;
+        }
+
+        .main-coin-wrap .main-coin-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0.4rem;
+        }
+
+        .main-coin-wrap .main-coin-title .coin-title-text {
+            font-size: 0.7rem;
+            color: #353535;
+            font-weight: 500;
+        }
+
+        .main-coin-wrap .main-coin-title .coin-more-text {
+            font-size: 0.6rem;
+            color: #888888;
+        }
+
+        .main-coin-wrap .main-coin-list {
+            display: flex;
+            flex-direction: row;
+            padding: 0.6rem;
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item {
+            display: flex;
+            flex-direction: column;
+            width: 33.33%;
+            /*flex布局中的item居中*/
+            align-items: center;
+            /*padding: 0.6rem;*/
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item .coin-info {
+            display: flex;
+            flex-direction: row;
+            /*flex布局中的item居中*/
+            align-items: center;
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item .coin-info .coin-name {
+            font-size: 0.7rem;
+            font-weight: 400;
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item .coin-info .coin-rate {
+            font-size: 0.6rem;
+            align-items: center;
+            margin-left: 0.4rem;
+            color: #09bb07;
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item .coin-price {
+            font-size: 0.8rem;
+            align-items: center;
+            color: #09bb07;
+            font-weight: 400;
+        }
+        /*风向标*/
+
+        .bellwether-wrap {
+            background-color: #ffffff;
+            margin-top: 1rem;
+        }
+
+        .bellwether-wrap .bellwether-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0.4rem;
+        }
+
+        .bellwether-wrap .bellwether-title .bellwether-title-text {
+            font-size: 0.7rem;
+            color: #353535;
+            font-weight: 500;
+        }
+
+        .bellwether-wrap .bellwether-title .bellwether-more-text {
+            font-size: 0.6rem;
+            color: #888888;
+        }
+
+        .bellwether-wrap .bellweher-chart-wrap {
+            padding: 0.4rem;
+            font-size: 0.6rem;
+            color: #353535;
+        }
+
+        .bellwether-wrap .bellweher-chart-wrap .bellweher-chart-data {}
+
+        .bellwether-wrap .bellweher-chart-wrap .bellweher-chart-data .item-text {
+            margin-left: 0.2rem;
+        }
+
+        .bellwether-wrap .bellweher-chart-wrap .bellweher-chart-data .item-red-data {
+            color: #e64340;
+        }
+
+        .bellwether-wrap .bellweher-chart-wrap .bellweher-chart-data .item-green-data {
+            color: #09bb07;
+        }
+
+        /*资金流向，短线精灵*/
+
+        .fund-line-wrap{
+          background-color: #ffffff;
+          margin: 1rem 0.6rem 1rem 0.6rem ;
+          display: flex;
+          flex-direction: row;
+          padding: 0.8rem;
+        }
+
+        .fund-line-wrap .fun-line-item{
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .fund-line-wrap .fun-line-item .fund-icon {
+          font-size: 1.2rem;
+          color: #B8860B ;
+          align-items: center;
+        }
+
+        .fund-line-wrap .fun-line-item .line-icon {
+          font-size: 1.2rem;
+          color: #00caca;
+          align-items: center;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="aui-hr"></div>
+    <div class="aui-content">
+        <!-- 主流币种 -->
+        <div class="main-coin-wrap">
+            <div class="main-coin-title">
+                <div class="coin-title-text">主流币种</div>
+                <div class="coin-more-text"> 更多&nbsp;&nbsp; > </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="main-coin-list">
+                <div class="main-coin-item aui-border-r">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+                <div class="main-coin-item aui-border-r">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+                <div class="main-coin-item">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="main-coin-list">
+                <div class="main-coin-item aui-border-r">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+                <div class="main-coin-item aui-border-r">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+                <div class="main-coin-item">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+            </div>
+            <div class="aui-hr"></div>
+        </div>
+        <!-- 主流币种  end-->
+
+        <!-- 风向标 -->
+        <div class="bellwether-wrap">
+            <div class="aui-hr"></div>
+            <div class="bellwether-title">
+                <div class="bellwether-title-text">牛熊风向标</div>
+                <div class="bellwether-more-text"> 更多&nbsp;&nbsp; > </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="bellweher-chart-wrap">
+                <div class="bellweher-chart-data">
+                    <span class="item-text">涨幅>5%:</span>
+                    <span class="item-green-data">187</span>
+                    <span class="item-text">上涨:</span>
+                    <span class="item-green-data">408</span>
+                    <span class="item-text">下跌:</span>
+                    <span class="item-red-data">76</span>
+                    <span class="item-text">跌幅>5%:</span>
+                    <span class="item-red-data">19</span>
+                </div>
+                <div id="bellweher-chart" class="bellweher-chart" style="width: 100%;height:10rem;margin-top:-2rem;"></div>
+            </div>
+        </div>
+        <!-- 风向标 end -->
+
+        <!-- 资金流向 短线精灵 -->
+        <div class="fund-line-wrap">
+            <div class="fun-line-item aui-border-r">
+              <i class="fund-icon aui-iconfont aui-icon-date"></i>
+              <span class="fun-line-text">资金流向</span>
+            </div>
+            <div class="fun-line-item">
+              <i class="line-icon aui-iconfont aui-icon-date"></i>
+              <span class="fun-line-text">短线精灵</span>
+            </div>
+        </div>
+        <!-- 资金流向 短线精灵  end -->
+
+        <!-- 榜单 -->
+        <div class="rank-wrap">
+            <div class="rank-title">
+              <i class="line-icon aui-iconfont aui-icon-right"></i>
+              <span>涨停榜</span>
+            </div>
+            <div class="rank-more">
+              <span class="more-text">更多 > </span>
+            </div>
+        </div>
+        <!-- 榜单end -->
+
+    </div>
+
+
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<!-- 引入echart -->
+<script type="text/javascript" src="../../../script/echarts.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        console.log("html:market_frm... ... ");
+        var header = $api.byId('header');
+        $api.fixStatusBar(header);
+        //获取frame页面的高度
+        var frameHeight = api.frameHeight;
+        // var headerHeight = $api.offset(header).h;
+        console.log("html:market_frm frameHeight:" + frameHeight);
+        // console.log("html:market_frm headerHeight:"+frameHeight);
+    };
+
+    // 基于准备好的dom，初始化echarts实例
+    var bellweherChart = echarts.init(document.getElementById('bellweher-chart'));
+    // 指定图表的配置项和数据
+    var option = {
+        xAxis: {
+            data: ["10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%", "10%"]
+        },
+        yAxis: {
+            show: false
+        },
+        series: [{
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20, 5, 20, 36, 10, 10, 20],
+            itemStyle: {
+                    normal:{
+                    color: function (params){
+                        var colorList = ['#09bb07','#09bb07','#09bb07','#09bb07','#09bb07','#09bb07','#e64340'];
+                        return colorList[params.dataIndex];
+                    }
+                },
+              },
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    bellweherChart.setOption(option);
+</script>
+
+</html>

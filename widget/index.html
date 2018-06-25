@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>币牛牛</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./css/aui.css" />
+    <style type="text/css">
+      /* 0.5px边框 */
+      .footer-container:before{
+         content: " ";
+         position: absolute;
+         left: 0;
+         top: 0;
+         right: 0;
+         height: 1px;
+         border-top: 1px solid #D9D9D9;
+         color: #D9D9D9;
+         -webkit-transform-origin: 0 0;
+         transform-origin: 0 0;
+         -webkit-transform: scaleY(0.5);
+         transform: scaleY(0.5);
+      }
+    </style>
+</head>
+
+<body>
+    <!-- aui外层容器 class aui-content  -->
+    <div class="aui-content" id="app-container">
+
+        <!-- 底部导航栏 -->
+        <div class="footer-container aui-bar-tab">
+          <footer class="aui-bar" id="footer">
+              <div id="tab-item-0" class="aui-bar-tab-item aui-active" tapmode onclick="switchFooterItem(this,0)">
+                  <!-- <i class="aui-iconfont aui-icon-home"></i> -->
+                  <div class="aui-bar-tab-label">自选</div>
+              </div>
+              <div id="tab-item-1" class="aui-bar-tab-item" tapmode onclick="switchFooterItem(this,1)">
+                  <!-- <i class="aui-iconfont aui-icon-star"></i> -->
+                  <div class="aui-bar-tab-label">行情</div>
+              </div>
+              <div id="tab-item-2" class="aui-bar-tab-item" tapmode onclick="switchFooterItem(this,2)">
+                  <!-- <div class="aui-badge">99</div> -->
+                  <!-- <i class="aui-iconfont aui-icon-cart"></i> -->
+                  <div class="aui-bar-tab-label">选币</div>
+              </div>
+              <div id="tab-item-3" class="aui-bar-tab-item" tapmode onclick="switchFooterItem(this,3)">
+                  <!-- <div class="aui-dot"></div> -->
+                  <!-- <i class="aui-iconfont aui-icon-my"></i> -->
+                  <div class="aui-bar-tab-label">咨询</div>
+              </div>
+              <div id="tab-item-4" class="aui-bar-tab-item" tapmode onclick="switchFooterItem(this,4)">
+                  <div class="aui-bar-tab-label">我的</div>
+              </div>
+          </footer>
+        </div>
+        <!-- 底部导航栏 end-->
+
+    </div>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<!-- 工具类 -->
+<script type="text/javascript" src="./script/utils.js"></script>
+<!-- 引入tab组件 -->
+<script type="text/javascript" src="./script/aui-tab.js"></script>
+
+<script type="text/javascript">
+
+    apiready = function() {
+        console.log("index html");
+        //适配iOS 7+，Android 4.4+状态栏
+        // var header = $api.byId('app-container');
+        // $api.fixStatusBar(header);
+        // var headerPos = $api.offset(header);
+        // var main = $api.byId('main');
+        // var mainPos = $api.offset(main);
+        // 整个可视页面的高度
+        var bodyHeight = api.winHeight;
+        // 计算底部导航栏的高度
+        var footerHeight = $api.offset($api.byId('footer')).h;
+        // 打开底部菜单页面
+        openFrameGroup('footer_tab_index',false,
+            {
+                x: 0,
+                y: 0,
+                w: 'auto',
+                h: bodyHeight - footerHeight
+            },
+            [{
+                name: 'self_select',
+                url: './html/self_select/self_select.html'
+            }, {
+                name: 'market',
+                url: './html/market/market.html'
+            }, {
+                name: 'select_coin',
+                url: './html/select_coin/select_coin.html'
+            }, {
+                name: 'information',
+                url: './html/information/information.html'
+            }, {
+                name: 'center',
+                url: './html/center/center.html'
+            }],
+            function(ret){
+                // 回调函数，当前显示在屏幕上的 frame 变化时会回调
+                console.log("data:"+JSON.stringify(ret));
+                //移除active样式
+                var footer = $api.byId('footer');
+                var footerAct = $api.dom(footer, '.aui-bar-tab-item.aui-active');
+                $api.removeCls(footerAct, 'aui-active');
+                //为当前选项添加atcive效果
+                $api.addCls($api.byId('tab-item-' + ret.index), 'aui-active');
+            }
+          );
+        // console.log("data:bodyHeight:" + bodyHeight);
+        // console.log("data:footerHeight:" + footerHeight);
+        // console.log("data:frameHeight:" + bodyHeight - footerHeight);
+        // 使用FrameGroup方法，通过对应的底部导航栏的菜单打开对应的frame
+        // api.openFrameGroup({
+        //     // 设置frameGroup的name
+        //     name: 'footer_tab_index',
+        //     //设置是否可以左右滑动
+        //     scrollEnabled: true,
+        //     // frame组的背景颜色
+        //     background:'#f8f8f8',
+        //     // frameGroup 的位置和大小
+        //     rect: {
+        //         x: 0,
+        //         y: 0,
+        //         w: 'auto',
+        //         h: bodyHeight - footerHeight
+        //     },
+        //     // 可选项）默认显示的页面索引
+        //     index: 0,
+        //     // （可选项）预加载的 frame 个数，默认加载当前页后面一个
+        //     preload: 0,
+        //     // frame 数组
+        //     frames: [{
+        //         name: 'self_select',
+        //         url: './html/self_select/self_select.html'
+        //     }, {
+        //         name: 'market',
+        //         url: './html/market/market.html'
+        //     }, {
+        //         name: 'select_coin',
+        //         url: './html/select_coin/select_coin.html'
+        //     }, {
+        //         name: 'information',
+        //         url: './html/information/information.html'
+        //     }, {
+        //         name: 'center',
+        //         url: './html/center/center.html'
+        //     }]
+        // }, function(ret, err) {
+        //     // 回调函数，当前显示在屏幕上的 frame 变化时会回调
+        //     console.log("data:"+JSON.stringify(ret));
+        //     //移除active样式
+        //     var footer = $api.byId('footer');
+        //     var footerAct = $api.dom(footer, '.aui-bar-tab-item.aui-active');
+        //     $api.removeCls(footerAct, 'aui-active');
+        //     //为当前选项添加atcive效果
+        //     $api.addCls($api.byId('tab-item-' + ret.index), 'aui-active');
+        // });
+    };
+
+    // 底部导航栏选项切换效果
+    function switchFooterItem(obj, index) {
+        console.log("function:switchFooterItem...");
+        //移除active样式
+        var footer = $api.byId('footer');
+        var footerAct = $api.dom(footer, '.aui-bar-tab-item.aui-active');
+        $api.removeCls(footerAct, 'aui-active');
+        //为当前选项添加atcive效果
+        $api.addCls(obj, 'aui-active');
+        //切换frame
+        api.setFrameGroupIndex({
+            name: 'footer_tab_index',
+            index: index,
+            scroll: true
+        });
+    }
+</script>
+
+</html>

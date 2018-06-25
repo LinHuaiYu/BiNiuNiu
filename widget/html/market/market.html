@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>币牛牛</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <style type="text/css">
+      /*标题栏的样式*/
+      .aui-bar-light {
+        color:#353535;
+        font-weight: 500;
+      }
+      .aui-bar-nav.aui-bar-light .aui-iconfont {
+        color: #353535;
+      }
+      .aui-bar-nav .aui-btn .aui-iconfont {
+          font-size: 0.8rem;
+          font-weight: 600;
+      }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部标题栏 -->
+    <header id="header" class="aui-bar aui-bar-nav aui-bar-light">
+        <!-- <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left">返回</span>
+        </a> -->
+        <div class="aui-title">行情</div>
+        <a class="aui-pull-right aui-btn" tapmode onclick="onOpenSearchFrmTap()">
+            <span class="aui-iconfont aui-icon-search"></span>
+        </a>
+    </header>
+    <div class="aui-tab" id="market-tab">
+        <div id="tab-item-0" class="aui-tab-item aui-active">币种</div>
+        <div id="tab-item-1" class="aui-tab-item">交易队</div>
+        <div id="tab-item-2" class="aui-tab-item">交易所</div>
+    </div>
+    <!-- 顶部标题栏 end-->
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/utils.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        console.log("html:market ... ... ");
+        //适配iOS 7+，Android 4.4+状态栏
+        var header = $api.byId('header');
+        $api.fixStatusBar(header);
+        //获取frame页面的高度
+        var frameHeight = api.frameHeight;
+        // 标题栏高度
+        var headerHeight = $api.offset(header).h;
+        // tab高度
+        var marketTabHeight = $api.offset($api.byId('market-tab')).h;
+        console.log("data：frameHeight" +frameHeight);
+        console.log("data：winHeight" +api.winHeight);
+        console.log("data：headerHeight" +headerHeight);
+        console.log("marketTabHeight" +marketTabHeight);
+        // tab选项卡页面
+        openFrameGroup('market_frm',true,
+        {
+            x: 0,
+            y: headerHeight+marketTabHeight,
+            w: 'auto',
+            h: frameHeight - headerHeight - marketTabHeight
+        },
+        [{
+            name: 'currency',
+            url: './currency/currency.html'
+        }, {
+            name: 'trade_team',
+            url: './trade_team/trade_team.html'
+        }, {
+            name: 'exchange',
+            url: './exchange/exchange.html'
+        }],
+        function(ret){
+            // 回调函数，当前显示在屏幕上的 frame 变化时会回调
+            console.log("data:"+JSON.stringify(ret));
+            //移除active样式
+            var martketTab = $api.byId('market-tab');
+            var tabAct = $api.dom(martketTab, '.aui-tab-item.aui-active');
+            $api.removeCls(tabAct, 'aui-active');
+            //为当前选项添加atcive效果
+            $api.addCls($api.byId('tab-item-' + ret.index), 'aui-active');
+        });
+    };
+    // tab active 样式方法
+    function switchFooterItem(obj, index) {
+        console.log("function:switchFooterItem...");
+        //移除active样式
+        var martketTab = $api.byId('market-tab');
+        var tabAct = $api.dom(martketTab, '.aui-tab-item.aui-active');
+        $api.removeCls(tabAct, 'aui-active');
+        //为当前选项添加atcive效果
+        $api.addCls(obj, 'aui-active');
+        //切换frame
+        api.setFrameGroupIndex({
+            name: 'market_frm',
+            index: index,
+            scroll: true
+        });
+    }
+    // 打开搜索页面
+    function onOpenSearchFrmTap(){
+      console.log("function:onOpenSearchFrmTap ... ...");
+    }
+</script>
+
+</html>

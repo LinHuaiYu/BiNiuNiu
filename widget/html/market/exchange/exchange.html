@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>币牛牛</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/aui-flex.css" />
+    <style type="text/css">
+        body {
+            /*background-color: #ffffff;*/
+        }
+        /*主流币种*/
+
+        .main-coin-wrap {
+          background-color: #ffffff;
+        }
+
+        .main-coin-wrap .main-coin-title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0.4rem;
+        }
+
+        .main-coin-wrap .main-coin-title .coin-title-text {
+            font-size: 0.7rem;
+            color: #353535;
+            font-weight: 500;
+        }
+
+        .main-coin-wrap .main-coin-title .coin-more-text {
+            font-size: 0.6rem;
+            color: #888888;
+        }
+
+        .main-coin-wrap .main-coin-list {
+            display: flex;
+            flex-direction: row;
+            padding: 0.6rem;
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item {
+            display: flex;
+            flex-direction: column;
+            width: 33.33%;
+            /*flex布局中的item居中*/
+            align-items: center;
+            /*padding: 0.6rem;*/
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item .coin-info {
+            display: flex;
+            flex-direction: row;
+            /*flex布局中的item居中*/
+            align-items: center;
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item .coin-info .coin-name{
+            font-size: 0.7rem;
+            font-weight: 400;
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item .coin-info .coin-rate{
+            font-size: 0.6rem;
+            align-items: center;
+            margin-left: 0.4rem;
+            color: #09bb07;
+        }
+
+        .main-coin-wrap .main-coin-list .main-coin-item .coin-price {
+          font-size: 0.8rem;
+          align-items: center;
+          color: #09bb07;
+          font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="aui-content">
+        <!-- 主流币种 -->
+        <div class="main-coin-wrap">
+            <div class="main-coin-title">
+                <div class="coin-title-text">主流币种</div>
+                <div class="coin-more-text"> 更多&nbsp;&nbsp; > </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="main-coin-list">
+                <div class="main-coin-item aui-border-r">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+                <div class="main-coin-item aui-border-r">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+                <div class="main-coin-item">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="main-coin-list">
+                <div class="main-coin-item aui-border-r">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+                <div class="main-coin-item aui-border-r">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+                <div class="main-coin-item">
+                    <div class="coin-info">
+                        <span class="coin-name">BTC</span>
+                        <span class="coin-rate">+91%</span>
+                    </div>
+                    <div class="coin-price">￥42406.47</div>
+                </div>
+            </div>
+            <div class="aui-hr"></div>
+        </div>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="../../../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        console.log("html:market_frm... ... ");
+        var header = $api.byId('header');
+        $api.fixStatusBar(header);
+        //获取frame页面的高度
+        var frameHeight = api.frameHeight;
+        // var headerHeight = $api.offset(header).h;
+        console.log("html:market_frm frameHeight:" + frameHeight);
+        // console.log("html:market_frm headerHeight:"+frameHeight);
+    };
+</script>
+
+</html>

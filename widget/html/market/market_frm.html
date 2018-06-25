@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>币牛牛</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+
+
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<!-- tab插件引入 -->
+<script type="text/javascript" src="../../script/aui-tab.js"></script>
+<script type="text/javascript">
+
+    apiready = function() {
+        console.log("html:market_frm... ... ");
+        var header = $api.byId('header');
+        $api.fixStatusBar(header);
+        //获取frame页面的高度
+        var frameHeight = api.frameHeight;
+        // var headerHeight = $api.offset(header).h;
+        console.log("html:market_frm frameHeight:"+frameHeight);
+        // console.log("html:market_frm headerHeight:"+frameHeight);
+    };
+</script>
+
+</html>
